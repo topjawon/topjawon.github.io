@@ -1,0 +1,839 @@
+/* ============================================
+   탑자원 정적 홈페이지 — 원본 동일 스타일
+   ============================================
+   글로벌 컬러 (Astra 테마 원본)
+     --color-0: #6878d6  (아이콘)
+     --color-1: #4d61d6  (링크/주색)
+     --color-2: #242a56  (다크)
+     --color-3: #393a56  (본문)
+     --color-4: #eff2ff  (밝은 배경)
+     --color-5: #ffffff
+   ============================================ */
+
+/* --- 리셋 & 기본 --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-0: #6878d6;
+  --color-1: #4d61d6;
+  --color-2: #242a56;
+  --color-3: #393a56;
+  --color-4: #eff2ff;
+}
+
+html {
+  font-size: 106.25%; /* 원본 동일 */
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.6em;
+  color: var(--color-3);
+  background: #fff;
+}
+
+a {
+  color: var(--color-1);
+  text-decoration: none;
+}
+a:hover, a:focus {
+  color: var(--color-1);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-weight: 700;
+  line-height: 1em;
+  color: var(--color-3);
+}
+
+h2 { font-size: 2.235rem; line-height: 1.3em; }
+h3 { font-size: 1.765rem; line-height: 1.3em; }
+h4 { font-size: 1.412rem; line-height: 1.2em; }
+h6 { font-size: 1rem; line-height: 1.25em; }
+
+/* ============================================
+   헤더 — transparent 2단 구조 (원본 동일)
+   ① above-header (50px): nav + kakao 우측 정렬
+   ② primary-header (70px): 빈 로고영역 (모바일: hamburger)
+   ============================================ */
+#masthead {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: none;
+}
+
+/* ─── ① Above header (50px) ─── */
+.above-header {
+  width: 100%;
+  min-height: 50px;
+}
+
+.above-header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  height: 50px;
+}
+
+.above-left {
+  flex: 1; /* 왼쪽 빈영역이 남은 공간 차지 */
+}
+
+.above-right {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+/* Nav 메뉴 */
+#primary-nav ul {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  gap: 0;
+}
+
+#primary-nav ul li a {
+  display: block;
+  color: #eff2ff;                          /* 원본: transparent header 메뉴 색상 */
+  font-family: Arial, Helvetica, Verdana, sans-serif;
+  font-size: 21px;                         /* 원본 동일 */
+  font-weight: 700;                        /* 원본 동일 */
+  line-height: 50px;                       /* 원본: above-header 높이와 동일 → 수직 중앙 */
+  padding: 0 0.6em;                        /* 원본: 기본 nav item 간격 */
+  position: relative;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+/* hover underline 효과 (원본: ast-menu-hover-style-underline) */
+#primary-nav ul li a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  right: 50%;
+  height: 1px;
+  background: transparent;
+  transition: left 0.3s ease, right 0.3s ease, background 0.3s ease;
+}
+
+#primary-nav ul li a:hover::before,
+#primary-nav ul li a.active::before {
+  left: 0.6em;
+  right: 0.6em;
+  background: currentColor;
+}
+
+#primary-nav ul li a:hover,
+#primary-nav ul li a.active {
+  color: #fff;
+}
+
+/* ─── 카카오톡 소셜 (yellow icon + yellow label, 원본 동일) ─── */
+.kakao-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  padding: 0;
+  margin-left: 12px;
+}
+
+.kakao-icon svg {
+  width: 21px;
+  height: 21px;
+  fill: #ffee00;                           /* 원본: ast-social-color-type-custom */
+  display: block;
+}
+
+.kakao-label {
+  color: #ffee00;                          /* 원본 동일 */
+  font-size: 0.88rem;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+/* ─── ② Primary header (70px) ─── */
+.primary-header {
+  width: 100%;
+  min-height: 70px;
+}
+
+.primary-header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.site-branding {
+  /* 원본 로고 영역 — 비어있음 */
+  flex-shrink: 0;
+}
+
+/* hamburger 버튼 (모바일용만 — 기본 숨김) */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #fff;
+  cursor: pointer;
+  padding: 8px 4px;
+  line-height: 1;
+}
+
+/* ─── ③ 모바일 드롭다운 메뉴 ─── */
+.mobile-menu {
+  display: none;
+  background: #fff;
+  width: 100%;
+}
+
+.mobile-menu.open {
+  display: block;
+}
+
+.mobile-menu nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-menu nav ul li {
+  border-bottom: 1px solid #eee;
+}
+
+.mobile-menu nav ul li:first-child {
+  border-top: 1px solid #eee;
+}
+
+.mobile-menu nav ul li a {
+  display: block;
+  padding: 14px 20px;
+  color: var(--color-3);                   /* #393a56 — 원본 동일 */
+  font-size: 1rem;
+  font-weight: 400;
+  text-decoration: none;
+  transition: color 0.2s, background 0.2s;
+}
+
+.mobile-menu nav ul li a:hover {
+  color: var(--color-1);                   /* #4d61d6 — 원본 동일 */
+  background: var(--color-4);              /* #eff2ff */
+}
+
+/* ============================================
+   히어로 — 배경 이미지 + wave SVG (텍스트 없음)
+   ============================================ */
+.hero {
+  position: relative;
+  min-height: 550px;
+  background-image: url('images/hero_bg.png');
+  background-repeat: no-repeat;
+  background-position: 50% 100%;
+  background-size: cover;
+  background-attachment: scroll;
+  padding: 50px 50px 70px;
+  overflow: visible;
+}
+
+/* Wave SVG: shape-top + flip → 상단에 dark wave overlay */
+.hero__shape {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100% + 1.3px);
+  height: 60px;
+  transform: scaleY(-1); /* flip */
+}
+
+.hero__shape svg {
+  width: 100%;
+  height: 100%;
+}
+
+.hero__shape .shape-fill {
+  fill: rgba(51, 51, 51, 0.55);
+}
+
+/* ============================================
+   섹션 공통
+   ============================================ */
+.section-wrap {
+  width: 100%;
+}
+
+.section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   회사소개
+   ============================================ */
+#about {
+  background-color: #fff;
+  padding: 50px 30px;
+}
+
+.about-heading {
+  text-align: center;
+  margin-bottom: 0;
+  margin-top: -30px; /* 원본 동일 */
+}
+
+.about-heading h2 {
+  color: var(--color-3);
+}
+
+.about-grid-wrap {
+  padding: 10px;
+}
+
+.about-grid {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+/* 이미지 컬럼 (왼쪽) */
+.about-images {
+  flex: 1;
+  min-width: 0;
+}
+
+.about-images .img-main {
+  margin-bottom: 10px;
+}
+
+.about-images .img-main img {
+  width: 100%;
+  height: auto;
+}
+
+.about-images .img-thumbs {
+  display: flex;
+  gap: 10px;
+}
+
+.about-images .img-thumb {
+  flex: 1;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-images .img-thumb img {
+  width: 100%;
+  height: auto;
+  transition: transform 0.2s;
+}
+
+.about-images .img-thumb:hover img {
+  transform: scale(1.05);
+}
+
+/* 텍스트 컬럼 (오른쪽) */
+.about-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.about-text p.greeting {
+  font-size: 1.05rem;
+  color: var(--color-3);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.about-text .flow-item {
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+  color: var(--color-3);
+}
+
+.about-text .flow-item .check {
+  display: inline;
+}
+
+.about-text .flow-item .flow-desc {
+  color: #555;
+}
+
+.about-text .info-list {
+  list-style: none;
+  margin: 16px 0;
+  padding: 0;
+}
+
+.about-text .info-list li {
+  font-size: 0.92rem;
+  color: var(--color-3);
+  padding: 3px 0;
+}
+
+.about-text .info-list li::before {
+  content: '– ';
+  color: #888;
+}
+
+.about-text .coverage {
+  font-size: 0.95rem;
+  color: var(--color-3);
+  font-weight: 400;
+  margin-top: 10px;
+}
+
+/* ============================================
+   주요업무
+   ============================================ */
+#service {
+  background-color: var(--color-4); /* #eff2ff */
+  padding: 50px 0;
+}
+
+.service-heading {
+  text-align: center;
+  padding: 0;
+}
+
+.service-heading h2 {
+  color: var(--color-3);
+}
+
+/* 카드 그리드: flex 레이아웃 (원본 동일) */
+.service-cards-wrap {
+  padding: 10px;
+}
+
+.service-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 10px;
+}
+
+.service-card {
+  flex: 1 1 calc(33.333% - 20px);
+  min-width: 200px;
+  max-width: calc(33.333% - 14px);
+  background-color: #fff;
+  padding: 22px;
+  text-align: center;
+}
+
+/* 아이콘 */
+.service-card .icon-wrap {
+  margin-bottom: 12px;
+}
+
+.service-card .icon-wrap svg {
+  width: 42px;
+  height: 42px;
+  fill: var(--color-0); /* #6878d6 */
+}
+
+/* 타이틀 */
+.service-card h4 {
+  font-size: 1.05rem;
+  color: var(--color-3);
+  line-height: 1.4;
+  margin-bottom: 20px;
+  margin-top: 15px;
+}
+
+/* ============================================
+   시공사례
+   ============================================ */
+#reviews {
+  background-color: #fff;
+  padding: 50px 30px;
+}
+
+.reviews-heading {
+  text-align: center;
+}
+
+.reviews-heading h2 {
+  color: var(--color-3);
+}
+
+.reviews-images-wrap {
+  padding: 10px;
+}
+
+.reviews-images {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.reviews-images .review-img {
+  flex: 1 1 calc(25% - 12px);
+  min-width: 140px;
+}
+
+.reviews-images .review-img img {
+  width: 100%;
+  height: auto;
+}
+
+/* 블로그 이동 버튼 */
+.btn-blog-wrap {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.btn-blog {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background-color: var(--color-1);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 400;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.btn-blog:hover {
+  background-color: var(--color-2);
+  color: #fff;
+}
+
+.btn-blog svg {
+  width: 30px;
+  height: 30px;
+  fill: #fff;
+}
+
+/* ============================================
+   CTA — nature 배경 이미지
+   ============================================ */
+.cta {
+  background-image: url('images/cta_bg.jpg');
+  background-repeat: no-repeat;
+  background-position: 60% 60%;
+  background-size: cover;
+  background-attachment: scroll;
+  padding: 40px 40px;
+}
+
+.cta-content {
+  text-align: center;
+  padding: 40px 0;
+}
+
+.cta-content h6 {
+  color: #fff;
+  font-size: 2.25rem;
+  line-height: 1.3;
+  letter-spacing: 3px;
+  font-weight: 700;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+/* ============================================
+   푸터
+   ============================================ */
+footer {
+  background: #fff;
+  padding: 20px 30px;
+}
+
+footer p {
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--color-3);
+  line-height: 1.8;
+}
+
+/* ============================================
+   고정 Sticky 버튼 — 모바일 전용
+   ============================================ */
+.sticky-buttons {
+  position: fixed;
+  right: 21px;
+  z-index: 999;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sticky-buttons-1 {
+  bottom: 70px;
+}
+
+.sticky-buttons-2 {
+  bottom: 117px;
+}
+
+.sticky-buttons li {
+  margin-bottom: 0;
+}
+
+.sticky-buttons li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 6px; /* rsquare = rounded square */
+  text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.sticky-buttons li a:hover {
+  transform: scale(1.08);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.sticky-buttons-1 li a {
+  background: rgb(255, 240, 86);
+  color: rgb(0, 0, 0);
+}
+
+.sticky-buttons-2 li a {
+  background: rgb(101, 214, 21);
+  color: rgb(0, 0, 0);
+}
+
+.sticky-buttons .sb-icon {
+  font-size: 1.2rem;
+}
+
+/* 모바일 이외 숨기기 (원본: min-width 1024px에서 display:none) */
+@media only screen and (min-width: 1024px) {
+  .sticky-buttons-1,
+  .sticky-buttons-2 {
+    display: none;
+  }
+}
+
+/* ============================================
+   스크롤 맨 위로 버튼
+   ============================================ */
+#ast-scroll-top {
+  position: fixed;
+  bottom: 30px;
+  right: 90px;
+  width: 40px;
+  height: 40px;
+  background: var(--color-2);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  cursor: pointer;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  transition: background 0.2s;
+}
+
+#ast-scroll-top.visible {
+  display: flex;
+}
+
+#ast-scroll-top:hover {
+  background: var(--color-1);
+}
+
+/* ============================================
+   모달 (이미지 확대)
+   ============================================ */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 500;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.modal-overlay.open {
+  display: flex;
+}
+
+.modal-content {
+  position: relative;
+  max-width: 800px;
+  width: 100%;
+}
+
+.modal-content img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.modal-close {
+  position: absolute;
+  top: -32px;
+  right: 0;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.8rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+/* (모바일 메뉴 스타일은 헤더 섹션에 포함됨) */
+
+/* ============================================
+   반응형 — Tablet (768px 이하: 모바일 헤더)
+   ============================================ */
+@media (max-width: 768px) {
+  /* 모바일 헤더: 고정 + 투명 유지 */
+  #masthead {
+    position: fixed;
+    background: none;
+  }
+
+  /* 드롭다운 열렸을 때 헤더 배경 불투명 */
+  #masthead.menu-open {
+    background: rgba(255, 255, 255, 0.97);
+  }
+
+  #masthead.menu-open .menu-toggle {
+    color: var(--color-3);
+  }
+
+  /* above-header 숨기기 (nav, kakao) */
+  .above-header {
+    display: none;
+  }
+
+  /* primary-header: hamburger만 표시 */
+  .primary-header {
+    min-height: 60px;
+  }
+
+  .primary-header-inner {
+    height: 60px;
+    padding: 0 20px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .hero {
+    min-height: 240px;
+    background-image: url('images/hero_mobile_bg.png');
+    background-position: 50% 0%;
+    background-size: 100%;
+    padding: 38px 30px 50px;
+  }
+
+  .hero__shape {
+    height: 40px;
+  }
+
+  #about {
+    padding: 50px 20px;
+  }
+
+  .about-grid {
+    flex-direction: column;
+  }
+
+  .about-images,
+  .about-text {
+    width: 100%;
+    flex: none;
+  }
+
+  #service {
+    padding: 20px 0;
+  }
+
+  .service-cards {
+    padding: 15px;
+  }
+
+  .service-card {
+    flex: 1 1 calc(50% - 20px);
+    max-width: calc(50% - 10px);
+    padding: 25px;
+  }
+
+  #reviews {
+    padding: 20px 20px;
+  }
+
+  .reviews-images {
+    flex-wrap: wrap;
+  }
+
+  .reviews-images .review-img {
+    flex: 1 1 calc(50% - 12px);
+  }
+
+  .cta {
+    padding: 20px 0;
+  }
+
+  .cta-content {
+    padding: 15px 0;
+  }
+
+  .cta-content h6 {
+    font-size: 1rem;
+    letter-spacing: -1px;
+    line-height: 0em;
+  }
+}
+
+/* ============================================
+   반응형 — Mobile (480px 이하)
+   ============================================ */
+@media (max-width: 480px) {
+  .service-card {
+    flex: 1 1 calc(50% - 16px);
+    max-width: calc(50% - 8px);
+    padding: 20px 14px;
+  }
+
+  .reviews-images .review-img {
+    flex: 1 1 calc(50% - 8px);
+  }
+
+  .about-images .img-thumbs {
+    gap: 8px;
+  }
+}

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>가정·이사폐기물, 탑자원 010-5262-4695 – 직접 치우기 어려운 폐기물 저희가 치워드립니다</title>
+
+  <!-- Google Fonts (원본 동일: Roboto + Barlow Semi Condensed) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome 6 (sticky 버튼 아이콘) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ============================================================
+     헤더 — transparent, 로고 없음, nav + 카카오톡
+     ============================================================ -->
+<header id="masthead">
+
+  <!-- ① Above header bar (50px) — nav + 카카오톡 우측 정렬 -->
+  <div class="above-header">
+    <div class="above-header-inner">
+      <!-- 왼쪽: 빈영역 -->
+      <div class="above-left"></div>
+      <!-- 오른쪽: nav + kakao -->
+      <div class="above-right">
+        <nav id="primary-nav">
+          <ul>
+            <li><a href="#" class="active">홈</a></li>
+            <li><a href="#about">회사소개</a></li>
+            <li><a href="#service">주요업무</a></li>
+            <li><a href="#reviews">시공사례</a></li>
+          </ul>
+        </nav>
+        <!-- 카카오톡 소셜 (원본: yellow SVG icon 21px + yellow label) -->
+        <a href="https://open.kakao.com/o/s6rYcMBg" class="kakao-btn" target="_blank" rel="noopener">
+          <span class="kakao-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M416 192c0-88.4-93.1-160-208-160S0 103.6 0 192c0 34.3 14.1 65.9 38 92-13.4 30.2-35.5 54.2-35.8 54.5-2.2 2.3-2.8 5.7-1.5 8.7S4.8 352 8 352c36.6 0 66.9-12.3 88.7-25 32.2 15.7 70.3 25 111.3 25 114.9 0 208-71.6 208-160zm122 220c23.9-26 38-57.7 38-92 0-66.9-53.5-124.2-129.3-148.1.9 6.6 1.3 13.3 1.3 20.1 0 105.9-107.7 192-240 192-10.8 0-21.3-.8-31.7-1.9C207.8 439.6 281.8 480 368 480c41 0 79.1-9.2 111.3-25 21.8 12.7 52.1 25 88.7 25 3.2 0 6.1-1.9 7.3-4.8 1.3-2.9.7-6.3-1.5-8.7-.3-.3-22.4-24.2-35.8-54.5z"></path></svg>
+          </span>
+          <span class="kakao-label">카카오톡상담</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ② Primary header bar (70px) — 왼쪽 빈 로고 / 오른쪽 hamburger(모바일) -->
+  <div class="primary-header">
+    <div class="primary-header-inner">
+      <div class="site-branding"></div>
+      <!-- hamburger (모바일용만 표시) -->
+      <button class="menu-toggle" id="menuToggle" onclick="toggleMobileMenu()">
+        <span class="icon-bars"><i class="fas fa-bars"></i></span>
+        <span class="icon-close" style="display:none;"><i class="fas fa-xmark"></i></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ③ 모바일 드롭다운 메뉴 (hamburger 클릭 시 표시) -->
+  <div class="mobile-menu" id="mobileMenu">
+    <nav>
+      <ul>
+        <li><a href="#" onclick="closeMobile()">홈</a></li>
+        <li><a href="#about" onclick="closeMobile()">회사소개</a></li>
+        <li><a href="#service" onclick="closeMobile()">주요업무</a></li>
+        <li><a href="#reviews" onclick="closeMobile()">시공사례</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ============================================================
+     히어로 — 배경 이미지 + wave SVG (텍스트 없음)
+     ============================================================ -->
+<section class="hero">
+  <!-- Wave shape (top + flip) — 원본 SVG 동일 -->
+  <div class="hero__shape">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+      <path class="shape-fill" opacity="0.33" d="M473,67.3c-203.9,88.3-263.1-34-320.3,0C66,119.1,0,59.7,0,59.7V0h1000v59.7 c0,0-62.1,26.1-94.9,29.3c-32.8,3.3-62.8-12.3-75.8-22.1C806,49.6,745.3,8.7,694.9,4.7S492.4,59,473,67.3z"></path>
+      <path class="shape-fill" opacity="0.66" d="M734,67.3c-45.5,0-77.2-23.2-129.1-39.1c-28.6-8.7-150.3-10.1-254,39.1 s-91.7-34.4-149.2,0C115.7,118.3,0,39.8,0,39.8V0h1000v36.5c0,0-28.2-18.5-92.1-18.5C810.2,18.1,775.7,67.3,734,67.3z"></path>
+      <path class="shape-fill" d="M766.1,28.9c-200-57.5-266,65.5-395.1,19.5C242,1.8,242,5.4,184.8,20.6C128,35.8,132.3,44.9,89.9,52.5C28.6,63.7,0,0,0,0 h1000c0,0-9.9,40.9-83.6,48.1S829.6,47,766.1,28.9z"></path>
+    </svg>
+  </div>
+</section>
+
+<!-- ============================================================
+     회사소개
+     ============================================================ -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-heading">
+      <h2>회사소개​</h2>
+    </div>
+
+    <div class="about-grid-wrap">
+      <div class="about-grid">
+        <!-- 왼쪽: 이미지 -->
+        <div class="about-images">
+          <div class="img-main">
+            <img src="images/about_main.png" alt="회사 사진" />
+          </div>
+          <div class="img-thumbs">
+            <div class="img-thumb" onclick="openModal('images/about_popup1.png')">
+              <img src="images/about_side1.jpg" alt="작업 사진 1" />
+            </div>
+            <div class="img-thumb" onclick="openModal('images/about_popup2.png')">
+              <img src="images/about_side2.jpg" alt="작업 사진 2" />
+            </div>
+          </div>
+        </div>
+
+        <!-- 오른쪽: 텍스트 -->
+        <div class="about-text">
+          <p class="greeting">안녕하세요.<br />저희 탑자원 홈페이지를 방문해 주셔서 감사드립니다.</p>
+
+          <div class="flow-item">
+            <span class="check">✔️</span> <strong>대면 견적문의</strong><br />
+            <span class="flow-desc">전화상담 진행 후 무료 방문 견적 &gt; 날짜 예약 &gt; 작업 진행 &gt; 작업 확인 후 종료</span>
+          </div>
+          <div class="flow-item">
+            <span class="check">✔️</span> <strong>비대면 견적문의</strong><br />
+            <span class="flow-desc">사진이나 문자로 작업할 내용 전송 &gt; 날짜 예약 &gt; 작업 진행 &gt; 비대면 확인(사진으로 확인, 통화 후 종료)</span>
+          </div>
+
+          <ul class="info-list">
+            <li>폐기할 물건의 정보를 알려주세요</li>
+            <li>방문할 지역과 층수를 알려주세요</li>
+            <li>엘리베이터 사용 유무를 알려주세요</li>
+            <li>희망하시는 날짜를 알려주세요</li>
+          </ul>
+
+          <p class="coverage">서울 / 경기 / 인천 전 지역 출장가능합니다.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     주요업무 — 6장 카드, 원본 SVG 아이콘
+     ============================================================ -->
+<section id="service">
+  <div class="section-inner">
+    <div class="service-heading">
+      <h2>주요업무</h2>
+    </div>
+
+    <div class="service-cards-wrap">
+      <div class="service-cards">
+
+        <!-- 1. 생활/가정 폐기물 (fa-house) -->
+        <div class="service-card">
+          <div class="icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M575.8 255.5C575.8 273.5 560.8 287.6 543.8 287.6H511.8L512.5 447.7C512.5 450.5 512.3 453.1 512 455.8V472C512 494.1 494.1 512 472 512H456C454.9 512 453.8 511.1 452.7 511.9C451.3 511.1 449.9 512 448.5 512H392C369.9 512 352 494.1 352 472V384C352 366.3 337.7 352 320 352H256C238.3 352 224 366.3 224 384V472C224 494.1 206.1 512 184 512H128.1C126.6 512 125.1 511.9 123.6 511.8C122.4 511.9 121.2 512 120 512H104C81.91 512 64 494.1 64 472V360C64 359.1 64.03 358.1 64.09 357.2V287.6H32.05C14.02 287.6 0 273.5 0 255.5C0 246.5 3.004 238.5 10.01 231.5L266.4 8.016C273.4 1.002 281.4 0 288.4 0C295.4 0 303.4 2.004 309.5 7.014L564.8 231.5C572.8 238.5 576.9 246.5 575.8 255.5L575.8 255.5z"></path></svg>
+          </div>
+          <h4>​<br />아파트, 빌라, 단독주택, 원룸 생활/가정 폐기물 수거해 드립니다.</h4>
+        </div>
+
+        <!-- 2. 이사 폐기물 (fa-truck-moving) -->
+        <div class="service-card">
+          <div class="icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M416 32C451.3 32 480 60.65 480 96V144H528.8C545.6 144 561.5 151.5 572.2 164.5L630.1 236.4C636.8 243.5 640 252.5 640 261.7V352C640 369.7 625.7 384 608 384H606.4C607.4 389.2 608 394.5 608 400C608 444.2 572.2 480 528 480C483.8 480 448 444.2 448 400C448 394.5 448.6 389.2 449.6 384H286.4C287.4 389.2 288 394.5 288 400C288 444.2 252.2 480 208 480C181.8 480 158.6 467.4 144 448C129.4 467.4 106.2 480 80 480C35.82 480 0 444.2 0 400V96C0 60.65 28.65 32 64 32H416zM535 194.9C533.5 193.1 531.2 192 528.8 192H480V256H584.1L535 194.9zM528 432C545.7 432 560 417.7 560 400C560 382.3 545.7 368 528 368C510.3 368 496 382.3 496 400C496 417.7 510.3 432 528 432zM208 368C190.3 368 176 382.3 176 400C176 417.7 190.3 432 208 432C225.7 432 240 417.7 240 400C240 382.3 225.7 368 208 368zM80 432C97.67 432 112 417.7 112 400C112 382.3 97.67 368 80 368C62.33 368 48 382.3 48 400C48 417.7 62.33 432 80 432z"></path></svg>
+          </div>
+          <h4>이사 폐기물 수거 및 이민 집 정리<br />해드립니다</h4>
+        </div>
+
+        <!-- 3. 사무실 폐기물 (fa-building-office2) -->
+        <div class="service-card">
+          <div class="icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M336 0C362.5 0 384 21.49 384 48V464C384 490.5 362.5 512 336 512H240V432C240 405.5 218.5 384 192 384C165.5 384 144 405.5 144 432V512H48C21.49 512 0 490.5 0 464V48C0 21.49 21.49 0 48 0H336zM64 272C64 280.8 71.16 288 80 288H112C120.8 288 128 280.8 128 272V240C128 231.2 120.8 224 112 224H80C71.16 224 64 231.2 64 240V272zM176 224C167.2 224 160 231.2 160 240V272C160 280.8 167.2 288 176 288H208C216.8 288 224 280.8 224 272V240C224 231.2 216.8 224 208 224H176zM256 272C256 280.8 263.2 288 272 288H304C312.8 288 320 280.8 320 272V240C320 231.2 312.8 224 304 224H272C263.2 224 256 231.2 256 240V272zM80 96C71.16 96 64 103.2 64 112V144C64 152.8 71.16 160 80 160H112C120.8 160 128 152.8 128 144V112C128 103.2 120.8 96 112 96H80zM160 144C160 152.8 167.2 160 176 160H208C216.8 160 224 152.8 224 144V112C224 103.2 216.8 96 208 96H176C167.2 96 160 103.2 160 112V144zM272 96C263.2 96 256 103.2 256 112V144C256 152.8 263.2 160 272 160H304C312.8 160 320 152.8 320 144V112C320 103.2 312.8 96 304 96H272z"></path></svg>
+          </div>
+          <h4>사무실 이전, 폐업 정리, 사무실 폐기물 수거해 드립니다</h4>
+        </div>
+
+        <!-- 4. 요양원 입소 (fa-hand-holding-heart) -->
+        <div class="service-card">
+          <div class="icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M275.2 250.5c7 7.375 18.5 7.375 25.5 0l108.1-114.2c31.5-33.12 29.72-88.1-5.65-118.7c-30.88-26.75-76.75-21.9-104.9 7.724L287.1 36.91L276.8 25.28C248.7-4.345 202.7-9.194 171.1 17.56C136.7 48.18 134.7 103.2 166.4 136.3L275.2 250.5zM568.2 336.3c-13.12-17.81-38.14-21.66-55.93-8.469l-119.7 88.17h-120.6c-8.748 0-15.1-7.25-15.1-15.1c0-8.746 7.25-15.1 15.1-15.1h78.25c15.1 0 30.75-10.87 33.37-26.62c3.25-19.1-12.12-37.37-31.62-37.37H191.1c-26.1 0-53.12 9.25-74.12 26.25l-46.5 37.74l-55.37-.0253c-8.748 0-15.1 7.275-15.1 16.02L.0001 496C.0001 504.8 7.251 512 15.1 512h346.1c22.03 0 43.92-7.187 61.7-20.28l135.1-99.51C577.5 379.1 581.3 354.1 568.2 336.3z"></path></svg>
+          </div>
+          <h4>요양원 입소전 짐 정리, 고인의 유품 정리 해드립니다</h4>
+        </div>
+
+        <!-- 5. 폐가구/폐가전 (fa-truck-rampbox) -->
+        <div class="service-card">
+          <div class="icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M272 32H368.6C388.1 32 406.5 40.84 418.6 56.02L527.4 192H576C593.7 192 608 206.3 608 224V288C625.7 288 640 302.3 640 320C640 337.7 625.7 352 608 352H574.9C575.6 357.2 576 362.6 576 368C576 429.9 525.9 480 464 480C402.1 480 352 429.9 352 368C352 362.6 352.4 357.2 353.1 352H286.9C287.6 357.2 288 362.6 288 368C288 429.9 237.9 480 176 480C114.1 480 64 429.9 64 368C64 362.6 64.39 357.2 65.13 352H32C14.33 352 0 337.7 0 320C0 302.3 14.33 288 32 288V224C32 206.3 46.33 192 64 192H224V80C224 53.49 245.5 32 272 32H272zM368.6 96H288V192H445.4L368.6 96zM176 416C202.5 416 224 394.5 224 368C224 341.5 202.5 320 176 320C149.5 320 128 341.5 128 368C128 394.5 149.5 416 176 416zM464 416C490.5 416 512 394.5 512 368C512 341.5 490.5 320 464 320C437.5 320 416 341.5 416 368C416 394.5 437.5 416 464 416z"></path></svg>
+          </div>
+          <h4>폐가구, 폐가전, 건설 폐기물, 인테리어 폐기물 처리 해드립니다.</h4>
+        </div>
+
+        <!-- 6. 철거 (fa-tools) -->
+        <div class="service-card">
+          <div class="icon-wrap">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M568.1 196.3l-22.62-22.62c-4.533-4.533-10.56-7.029-16.97-7.029s-12.44 2.496-16.97 7.029l-5.654 5.656l-20.12-20.12c4.596-23.46-2.652-47.9-19.47-64.73l-45.25-45.25C390.2 17.47 347.1 0 303.1 0C258.2 0 216 17.47 184.3 49.21L176.5 57.05L272.5 105.1v13.81c0 18.95 7.688 37.5 21.09 50.91l49.16 49.14c13.44 13.45 31.39 20.86 50.54 20.86c4.758 0 9.512-.4648 14.18-1.387l20.12 20.12l-5.654 5.654c-9.357 9.357-9.357 24.58-.002 33.94l22.62 22.62c4.535 4.533 10.56 7.031 16.97 7.031s12.44-2.498 16.97-7.031l90.53-90.5C578.3 220.8 578.3 205.6 568.1 196.3zM270.9 192.4c-3.846-3.846-7.197-8.113-10.37-12.49l-239.5 209.2c-28.12 28.12-28.16 73.72-.0371 101.8C35.12 505 53.56 512 71.1 512s36.84-7.031 50.91-21.09l209.1-239.4c-4.141-3.061-8.184-6.289-11.89-9.996L270.9 192.4z"></path></svg>
+          </div>
+          <h4>내부 철거, 사무실 철거, 인테리어 철거 해드립니다.</h4>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     시공사례
+     ============================================================ -->
+<section id="reviews">
+  <div class="section-inner">
+    <div class="reviews-heading">
+      <h2>시공사례​</h2>
+    </div>
+
+    <div class="reviews-images-wrap">
+      <div class="reviews-images">
+        <div class="review-img"><img src="images/review1.png" alt="시공사례 1" /></div>
+        <div class="review-img"><img src="images/review2.png" alt="시공사례 2" /></div>
+        <div class="review-img"><img src="images/review3.png" alt="시공사례 3" /></div>
+        <div class="review-img"><img src="images/review4.png" alt="시공사례 4" /></div>
+      </div>
+    </div>
+
+    <!-- 블로그 이동 버튼 (원본: 텍스트 + arrow SVG) -->
+    <div class="btn-blog-wrap">
+      <a href="https://blog.naver.com/PostList.naver?blogId=topaz203" class="btn-blog" target="_blank" rel="noopener">
+        시공사례 블로그 이동
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" aria-hidden="true"><path d="M438.6 278.6l-160 160C272.4 444.9 264.2 448 256 448s-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L338.8 288H32C14.33 288 .0016 273.7 .0016 256S14.33 224 32 224h306.8l-105.4-105.4c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160C451.1 245.9 451.1 266.1 438.6 278.6z"></path></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CTA — nature 배경 이미지 + 흰색 텍스트
+     ============================================================ -->
+<section class="cta">
+  <div class="cta-content">
+    <h6>신속 정확한 폐기물 수거업체 탑자원에 맡겨주세요</h6>
+  </div>
+</section>
+
+<!-- ============================================================
+     푸터
+     ============================================================ -->
+<footer id="colophon">
+  <p>상호: 탑자원 | 대표이사: 손정윤 | 주소: 경기도 고양시 덕양구 얼음들길 315(토당동) | TEL: 010-5262-4695<br />
+     Copyright &copy; 2026 탑자원 ALL RIGHTS RESERVED.</p>
+</footer>
+
+<!-- ============================================================
+     Sticky 버튼 (모바일 전용 — 원본 동일)
+     ============================================================ -->
+<!-- 카카오톡 -->
+<ul class="sticky-buttons sticky-buttons-1">
+  <li><a href="https://open.kakao.com/o/s6rYcMBg" target="_self"><span class="sb-icon fas fa-comments"></span></a></li>
+</ul>
+<!-- 전화 -->
+<ul class="sticky-buttons sticky-buttons-2">
+  <li><a href="tel:010-5262-4695"><span class="sb-icon fas fa-phone"></span></a></li>
+</ul>
+
+<!-- ============================================================
+     스크롤 맨 위로 버튼
+     ============================================================ -->
+<button id="ast-scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <i class="fas fa-chevron-up"></i>
+</button>
+
+<!-- ============================================================
+     이미지 모달
+     ============================================================ -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal()">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal()">&times;</button>
+    <img id="modalImg" src="" alt="확대 이미지" />
+  </div>
+</div>
+
+<!-- ============================================================
+     스크립트
+     ============================================================ -->
+<script>
+  /* 모바일 메뉴 토글 */
+  function toggleMobileMenu() {
+    var menu = document.getElementById('mobileMenu');
+    var header = document.getElementById('masthead');
+    var isOpen = menu.classList.toggle('open');
+    header.classList.toggle('menu-open', isOpen);
+    // hamburger 아이콘 토글 (bars ↔ xmark)
+    document.querySelector('.icon-bars').style.display = isOpen ? 'none' : 'inline';
+    document.querySelector('.icon-close').style.display = isOpen ? 'inline' : 'none';
+  }
+  function closeMobile() {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.getElementById('masthead').classList.remove('menu-open');
+    document.querySelector('.icon-bars').style.display = 'inline';
+    document.querySelector('.icon-close').style.display = 'none';
+  }
+
+  /* 이미지 모달 */
+  function openModal(src) {
+    document.getElementById('modalImg').src = src;
+    document.getElementById('modalOverlay').classList.add('open');
+  }
+  function closeModal() {
+    document.getElementById('modalOverlay').classList.remove('open');
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  /* 스크롤 맨 위로 버튼 표시/숨기기 */
+  window.addEventListener('scroll', function() {
+    document.getElementById('ast-scroll-top').classList.toggle('visible', window.scrollY > 400);
+  });
+
+  /* 활성 메뉴 하이라이트 (스크롤 기준) */
+  var sections = ['about', 'service', 'reviews'];
+  window.addEventListener('scroll', function() {
+    var scrollY = window.scrollY + 100;
+    var current = '';
+    sections.forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el && el.offsetTop <= scrollY) current = id;
+    });
+    document.querySelectorAll('#primary-nav a').forEach(function(a) {
+      a.classList.remove('active');
+      if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+    });
+    if (window.scrollY < document.getElementById('about').offsetTop - 100) {
+      document.querySelectorAll('#primary-nav a').forEach(function(a) { a.classList.remove('active'); });
+      document.querySelector('#primary-nav a[href="#"]').classList.add('active');
+    }
+  });
+</script>
+
+</body>
+</html>
