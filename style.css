@@ -338,11 +338,28 @@ h6 {
 .about-heading {
   text-align: center;
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 30px;
 }
 
 .about-heading h2 {
-  color: var(--color-3);
+  color: var(--color-2);
+  font-size: 2rem;
+  letter-spacing: 2px;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 12px;
+}
+
+.about-heading h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--color-1);
+  border-radius: 2px;
 }
 
 /* 2컬럼 그리드 (원본: wp-block-columns flex, margin-top 50px) */
@@ -415,10 +432,28 @@ p.about-text strong {
 .service-heading {
   text-align: center;
   padding: 0;
+  margin-bottom: 30px;
 }
 
 .service-heading h2 {
-  color: var(--color-3);
+  color: var(--color-2);
+  font-size: 2rem;
+  letter-spacing: 2px;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 12px;
+}
+
+.service-heading h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--color-1);
+  border-radius: 2px;
 }
 
 /* 카드 그리드: flex 레이아웃 (원본 동일) */
@@ -482,10 +517,28 @@ p.about-text strong {
 
 .reviews-heading {
   text-align: center;
+  margin-bottom: 30px;
 }
 
 .reviews-heading h2 {
-  color: var(--color-3);
+  color: var(--color-2);
+  font-size: 2rem;
+  letter-spacing: 2px;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 12px;
+}
+
+.reviews-heading h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--color-1);
+  border-radius: 2px;
 }
 
 .reviews-images-wrap {
@@ -505,6 +558,8 @@ p.about-text strong {
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: block;
+  text-decoration: none;
 }
 
 .reviews-images .review-img:hover {
@@ -545,8 +600,11 @@ p.about-text strong {
   transition: background 0.2s;
 }
 
-.btn-blog:hover {
-  background-color: var(--color-2);
+.btn-blog:hover,
+.btn-blog:focus,
+.btn-blog:active,
+.btn-blog:visited {
+  background-color: var(--color-1);
   color: #fff;
 }
 
@@ -566,11 +624,22 @@ p.about-text strong {
   background-size: cover;
   background-attachment: scroll;
   padding: 40px 40px;
+  position: relative;
+}
+
+.cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 24, 50, 0.6);
+  z-index: 0;
 }
 
 .cta-content {
   text-align: center;
   padding: 40px 0;
+  position: relative;
+  z-index: 1;
 }
 
 .cta-content h6 {
@@ -586,14 +655,16 @@ p.about-text strong {
    푸터
    ============================================ */
 footer {
-  background: #fff;
-  padding: 20px 30px;
+  background: linear-gradient(135deg, rgba(20, 24, 50, 0.98), rgba(36, 42, 86, 0.95));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 30px 30px;
 }
 
 footer p {
   text-align: center;
   font-size: 0.88rem;
-  color: var(--color-3);
+  color: rgba(255, 255, 255, 0.9);
   line-height: 1.8;
 }
 
@@ -610,11 +681,11 @@ footer p {
 }
 
 .sticky-buttons-1 {
-  bottom: 70px;
+  bottom: 80px;
 }
 
 .sticky-buttons-2 {
-  bottom: 117px;
+  bottom: 136px;
 }
 
 .sticky-buttons li {
@@ -667,8 +738,8 @@ footer p {
    ============================================ */
 #ast-scroll-top {
   position: fixed;
-  bottom: 30px;
-  right: 90px;
+  bottom: 24px;
+  right: 21px;
   width: 40px;
   height: 40px;
   background: var(--color-2);
@@ -680,7 +751,7 @@ footer p {
   justify-content: center;
   font-size: 1rem;
   cursor: pointer;
-  z-index: 100;
+  z-index: 998;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   transition: background 0.2s;
 }
@@ -849,6 +920,10 @@ footer p {
     /* 각 컬럼 100% → 세로 스택 */
   }
 
+  .about-thumbs {
+    margin-top: 20px;
+  }
+
   #service {
     padding: 20px 0;
   }
@@ -858,8 +933,8 @@ footer p {
   }
 
   .service-card {
-    flex: 1 1 calc(50% - 10px);
-    max-width: calc(50% - 10px);
+    flex: 1 1 100%;
+    max-width: 100%;
     min-width: unset;
     padding: 20px 15px;
   }
@@ -900,10 +975,10 @@ footer p {
    ============================================ */
 @media (max-width: 480px) {
   .service-card {
-    flex: 1 1 calc(50% - 8px);
-    max-width: calc(50% - 8px);
+    flex: 1 1 100%;
+    max-width: 100%;
     min-width: unset;
-    padding: 15px 10px;
+    padding: 15px;
   }
 
   .reviews-images .review-img {
