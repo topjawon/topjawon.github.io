@@ -31,6 +31,16 @@ html {
   font-size: 106.25%;
   /* 원본 동일 */
   scroll-behavior: smooth;
+  /* 스크롤바 숨기기 */
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+}
+
+/* 스크롤바 숨기기 - Webkit 브라우저 */
+html::-webkit-scrollbar {
+  display: none;
 }
 
 body {
@@ -40,6 +50,10 @@ body {
   line-height: 1.6em;
   color: var(--color-3);
   background: #fff;
+  overflow-x: hidden;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 a {
@@ -242,7 +256,9 @@ h6 {
 /* ─── ③ 모바일 드롭다운 메뉴 ─── */
 .mobile-menu {
   display: none;
-  background: #fff;
+  background: linear-gradient(180deg, rgba(36, 42, 86, 0.98), rgba(57, 58, 86, 0.95));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   width: 100%;
 }
 
@@ -257,18 +273,17 @@ h6 {
 }
 
 .mobile-menu nav ul li {
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .mobile-menu nav ul li:first-child {
-  border-top: 1px solid #eee;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .mobile-menu nav ul li a {
   display: block;
   padding: 14px 20px;
-  color: var(--color-3);
-  /* #393a56 — 원본 동일 */
+  color: rgba(255, 255, 255, 0.9);
   font-size: 1rem;
   font-weight: 400;
   text-decoration: none;
@@ -276,10 +291,8 @@ h6 {
 }
 
 .mobile-menu nav ul li a:hover {
-  color: var(--color-1);
-  /* #4d61d6 — 원본 동일 */
-  background: var(--color-4);
-  /* #eff2ff */
+  color: #fff;
+  background: rgba(77, 97, 214, 0.3);
 }
 
 /* ============================================
@@ -294,7 +307,7 @@ h6 {
   background-size: cover;
   background-attachment: scroll;
   padding: 50px 50px 70px;
-  overflow: visible;
+  overflow: hidden;
 }
 
 /* Wave SVG: shape-top → 상단에 dark wave overlay */
@@ -856,19 +869,21 @@ footer p {
    ============================================ */
 @media (max-width: 768px) {
 
-  /* 모바일 헤더: 고정 + 투명 유지 */
+  /* 모바일 헤더: absolute + 투명 유지 */
   #masthead {
-    position: fixed;
+    position: absolute;
     background: none;
   }
 
   /* 드롭다운 열렸을 때 헤더 배경 불투명 */
   #masthead.menu-open {
-    background: rgba(255, 255, 255, 0.97);
+    background: rgba(36, 42, 86, 0.98);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
   }
 
   #masthead.menu-open .menu-toggle {
-    color: var(--color-3);
+    color: #fff;
   }
 
   /* above-header 숨기기 (nav, kakao) */
